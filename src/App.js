@@ -33,7 +33,8 @@ class App extends Component{
   render() {
     return (
       <ListContacts
-        contacts={this.state.contacts}      
+        contacts={this.state.contacts} 
+        //contacts={{}}
         handleRemove={this.handleRemove}
       />
     );
