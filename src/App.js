@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ListContacts from './ListContacts'
-
+import {Route} from 'react-router-dom';
+import CreateContact from './CreateContact'
 
 class App extends Component{
   state = {
@@ -32,11 +33,17 @@ class App extends Component{
   }
   render() {
     return (
-      <ListContacts
-        contacts={this.state.contacts} 
-        //contacts={{}}
-        handleRemove={this.handleRemove}
-      />
+      <div>
+        <Route exact path="/" render={(props) => (
+          <ListContacts
+            contacts={this.state.contacts} 
+            //contacts={{}}
+            {...props}
+            handleRemove={this.handleRemove}
+          />
+        )}/>
+        <Route path='/create' component={CreateContact}/>
+      </div>
     );
   }
 }
