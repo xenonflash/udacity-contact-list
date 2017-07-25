@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
+import {Link} from 'react-router-dom';
 import soryBy from 'sort-by';
 
 class ListContacts extends Component{
@@ -26,9 +27,13 @@ class ListContacts extends Component{
     }
     return (
       <div className="list-contacts">
+        <Link to={{
+          pathname: '/create',
+          query: {name: 'xiaoming', age: '20'}
+        }}>create new contact</Link>
         <div className="list-contact-top">
           <input
-            className="search-contacts"  
+            className="search-contacts"
             type="text" 
             className="search-contacts"
             value={this.state.query}
